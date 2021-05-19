@@ -1,6 +1,6 @@
 # DataFree
 
-https://arxiv.org/pdf/2010.04092.pdf
+https://arxiv.org/abs/2105.08584
 
 A benchmark for data-free knowledge distillation (Comming soon...)
 
