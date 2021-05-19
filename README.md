@@ -1,5 +1,7 @@
 # DataFree
 
+https://arxiv.org/pdf/2010.04092.pdf
+
 A benchmark for data-free knowledge distillation (Comming soon...)
 
 ## Citation
