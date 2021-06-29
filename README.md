@@ -100,7 +100,7 @@ you can register your models and datasets in registry.py by modifying `NORMALIZ_
 
 ### 5. Implement your algorithms
 
-You can inherent `datafree.synthesis.BaseSynthesizer` to implement your algorithms. It should provide two interface: 1) `BaseSynthesizer.synthesize` takes several steps to craft new samples and return an image dict for visualization; 2) `BaseSynthesizer.sample` obtain a batch of training data for KD.
+You can inherent `datafree.synthesis.BaseSynthesizer` to implement your algorithms. It should provide two interface: 1) `BaseSynthesizer.synthesize` takes several steps to craft new samples and return an image dict for visualization; 2) `BaseSynthesizer.sample` fetches a batch of training data for KD.
 
 ## Bibtex
 I you found this work useful for your research, please cite our paper:
