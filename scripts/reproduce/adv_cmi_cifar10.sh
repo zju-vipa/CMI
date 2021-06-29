@@ -21,5 +21,5 @@ python datafree_kd.py \
 --balance 0 \
 --gpu 0 \
 --cmi_init run/cmi-preinverted-wrn402 \
---save_dir run/adv_cmi_cifar10v4 \
---log_tag adv_cmi_cifar10v4
+--save_dir run/adv_cmi_cifar10 \
+--log_tag adv_cmi_cifar10
