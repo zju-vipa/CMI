@@ -95,7 +95,7 @@ Enabled hyperparameters for different methods:
 
 ### 4. Use your models/datasets
 
-you can register your models and datasets in registry.py by modifying `NORMALIZ_DICT`, `MODEL_DICT` and `get_dataset`. Then you can run the above commands to train your own models.
+You can register your models and datasets in registry.py by modifying `NORMALIZ_DICT`, `MODEL_DICT` and `get_dataset`. Then you can run the above commands to train your own models.
 
 
 ### 5. Implement your algorithms
