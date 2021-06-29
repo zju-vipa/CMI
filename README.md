@@ -93,7 +93,7 @@ Enabled hyperparameters for different methods:
 | DFQ | √ | √ | √ | √ | - | - | √ | scripts/dfq_cifar10.sh |
 | CMI | √ | √ | √ | - | - | √ | √ | scripts/cmi_cifar10_scratch.sh |
 
-### 4. Train your models/datasets
+### 4. Use your models/datasets
 
 you can register your models and datasets in registry.py by modifying `NORMALIZ_DICT`, `MODEL_DICT` and `get_dataset`. Then you can run the above commands to train your own models.
 
