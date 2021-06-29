@@ -100,10 +100,10 @@ You can register your models and datasets in registry.py by modifying `NORMALIZ_
 
 ### 5. Implement your algorithms
 
-You can inherent `datafree.synthesis.BaseSynthesizer` to implement your algorithms. It should provide two interface: 1) `BaseSynthesizer.synthesize` takes several steps to craft new samples and return an image dict for visualization; 2) `BaseSynthesizer.sample` fetches a batch of training data for KD.
+You can inherent `datafree.synthesis.BaseSynthesizer` to implement your algorithms. It should provide two interfaces: 1) `BaseSynthesizer.synthesize` takes several steps to craft new samples and return an image dict for visualization; 2) `BaseSynthesizer.sample` fetches a batch of training data for KD.
 
 ## Citation
-I you found this work useful for your research, please cite our paper:
+If you found this work useful for your research, please cite our paper:
 ```
 @misc{fang2021contrastive,
       title={Contrastive Model Inversion for Data-Free Knowledge Distillation}, 
