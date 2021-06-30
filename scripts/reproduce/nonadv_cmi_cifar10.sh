@@ -5,6 +5,7 @@ python vanilla_kd.py \
 --transfer_set run/cmi-preinverted-wrn402 \
 --beta 0 \
 --batch_size 128 \
+--T 20 \
 --lr 0.1 \
 --epoch 200 \
 --gpu 0
