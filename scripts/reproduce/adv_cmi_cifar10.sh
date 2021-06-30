@@ -19,6 +19,7 @@ python datafree_kd.py \
 --cr_T 0.1 \
 --act 0 \
 --balance 0 \
+--T 20 \
 --gpu 0 \
 --cmi_init run/cmi-preinverted-wrn402 \
 --save_dir run/adv_cmi_cifar10 \
