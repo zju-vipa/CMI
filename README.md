@@ -2,8 +2,8 @@
 
 A benchmark of data-free knowledge distillation from paper ["Contrastive Model Inversion for Data-Free Knowledge Distillation"](https://arxiv.org/abs/2105.08584)
 
-|  |  |  |
-| :---: | :---: | :---: |
+|  |  |
+| :---: | :---: |
 | CMI (this work) |  DeepInv | 
 |  <img src="assets/cmi.png"> | <img src="assets/deepinv.png"> | 
 | ZSKT | DFQ |
