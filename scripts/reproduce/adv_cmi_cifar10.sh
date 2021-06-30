@@ -17,6 +17,7 @@ python datafree_kd.py \
 --oh 0.5 \
 --cr 0.8 \
 --cr_T 0.1 \
+--T 20 \
 --act 0 \
 --balance 0 \
 --gpu 0 \
