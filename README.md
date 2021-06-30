@@ -47,7 +47,7 @@ bash scripts/cmi_cifar10_for_vis.sh
 
 ### 2. Reproduce our results
 
-*Note: This repo was refactored from our experimental code and is still under development. I'm struggling to find the appropriate hyperparams for each methods (°ー°〃). So far, we only provide the hyperparameters to reproduce CIFAR-10 results for wrn-40-2 => wrn-16-1. You may need to tune the hyper-parameters for other models and datasets. More resources will be uploaded in the future update.*
+*Note: This repo was refactored from our experimental code and is still under development. I'm struggling to find the appropriate hyperparams for every methods (°ー°〃). So far, we only provide the hyperparameters to reproduce CIFAR-10 results for wrn-40-2 => wrn-16-1. You may need to tune the hyper-parameters for other models and datasets. More resources will be uploaded in the future update.*
 
 To reproduce our results, please download pre-trained teacher models from [Dropbox-Models (266 MB)](https://www.dropbox.com/sh/w8xehuk7debnka3/AABhoazFReE_5mMeyvb4iUWoa?dl=0) and extract them as `checkpoints/pretrained`. Also a pre-inverted data set with ~50k samples is available for wrn-40-2 teacher on CIFAR-10. You can download it from [Dropbox-Data (133 MB)](https://www.dropbox.com/s/enaj6c63heq5n4j/cmi-preinverted-wrn402.zip?dl=0) and extract them to `run/cmi-preinverted-wrn402/`. 
 
