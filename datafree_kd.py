@@ -39,7 +39,6 @@ parser.add_argument('--cr', default=1, type=float, help='scaling factor for cont
 parser.add_argument('--cr_T', default=0.5, type=float, help='temperature for contrastive model inversion')
 parser.add_argument('--cmi_init', default=None, type=str, help='path to pre-inverted data')
 
-
 # Basic
 parser.add_argument('--data_root', default='data')
 parser.add_argument('--teacher', default='wrn40_2')
@@ -231,7 +230,6 @@ def main_worker(gpu, ngpus_per_node, args):
             # DataParallel will divide and allocate batch_size to all available GPUs
             model = torch.nn.DataParallel(model).cuda()
             return model
-
     student = registry.get_model(args.student, num_classes=num_classes)
     teacher = registry.get_model(args.teacher, num_classes=num_classes, pretrained=True).eval()
     args.normalizer = normalizer = datafree.utils.Normalizer(**registry.NORMALIZE_DICT[args.dataset])
@@ -241,11 +239,11 @@ def main_worker(gpu, ngpus_per_node, args):
     criterion = datafree.criterions.KLDiv(T=args.T)
     
     ############################################
-    # Setup the data-free synthesizer
+    # Setup data-free synthesizers
     ############################################
     if args.synthesis_batch_size is None:
         args.synthesis_batch_size = args.batch_size
-
+    
     if args.method=='deepinv':
         synthesizer = datafree.synthesis.DeepInvSyntheiszer(
                  teacher=teacher, student=student, num_classes=num_classes, 
@@ -269,8 +267,8 @@ def main_worker(gpu, ngpus_per_node, args):
         nz = 256
         generator = datafree.models.generator.Generator(nz=nz, ngf=64, img_size=32, nc=3)
         generator = prepare_model(generator)
-        feature_layers = None # use outputs from all conv layers
-        if args.teacher=='resnet34': # use block outputs
+        feature_layers = None # use all conv layers
+        if args.teacher=='resnet34': # only use blocks
             feature_layers = [teacher.layer1, teacher.layer2, teacher.layer3, teacher.layer4]
         synthesizer = datafree.synthesis.CMISynthesizer(teacher, student, generator, 
                  nz=nz, num_classes=num_classes, img_size=(3, 32, 32), 
