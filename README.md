@@ -4,10 +4,10 @@ A benchmark of data-free knowledge distillation from paper ["Contrastive Model I
 
 |  |  |  |
 | :---: | :---: | :---: |
-| DeepInv | DFQ | 
-|  <img src="assets/deepinv.png"> | <img src="assets/dfq.png"> |  |
-| ZSKT | CMI (this work) |
-| <img src="assets/zskt.png">     | <img src="assets/cmi.png"> |
+| CMI (this work) |  DeepInv | 
+|  <img src="assets/cmi.png"> | <img src="assets/deepinv.png"> |  |
+| ZSKT | DFQ |
+| <img src="assets/zskt.png">     | <img src="assets/dfq.png"> |
 ## Results
 
 ### 1. CIFAR-10
