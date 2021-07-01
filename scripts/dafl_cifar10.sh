@@ -14,7 +14,7 @@ python datafree_kd.py \
 --T 20 \
 --bn 0 \
 --oh 1 \
---act 0.1 \
+--act 0.001 \
 --balance 20 \
 --gpu 0 \
 --seed 0 \

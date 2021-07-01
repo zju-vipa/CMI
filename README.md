@@ -86,7 +86,7 @@ python vanilla_kd.py --teacher wrn40_2 --student wrn16_1 --dataset cifar10 --tra
 ```bash
 bash scripts/xxx.sh
 ```
-Hyper-parameters for different methods: 
+Hyper-parameters used by different methods: 
 
 | Method | adv | bn | oh | balance | act | cr | GAN | Example |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
