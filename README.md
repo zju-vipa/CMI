@@ -2,12 +2,14 @@
 
 A benchmark of data-free knowledge distillation from paper ["Contrastive Model Inversion for Data-Free Knowledge Distillation"](https://arxiv.org/abs/2105.08584)
 
-|  |  |  |
-| :---: | :---: | :---: |
-| DeepInv | DFQ | 
-|  <img src="assets/deepinv.png"> | <img src="assets/dfq.png"> |  |
-| ZSKT | CMI (this work) |
-| <img src="assets/zskt.png">     | <img src="assets/cmi.png"> |
+Authors: Gongfan Fang, Jie Song, Xinchao Wang, Chengchao Shen, Xingen Wang, Mingli Song
+
+|  |  |
+| :---: | :---: |
+| CMI (this work) |  DeepInv | 
+|  <img src="assets/cmi.png"> | <img src="assets/deepinv.png"> | 
+| ZSKT | DFQ |
+| <img src="assets/zskt.png">     | <img src="assets/dfq.png"> |
 ## Results
 
 ### 1. CIFAR-10
@@ -45,7 +47,7 @@ bash scripts/cmi_cifar10_for_vis.sh
 
 ### 2. Reproduce our results
 
-*Note: This repo is refactored from our experimental code and is still under development. I'm  struggling to find the appropriate hyperparams for each methods (°ー°〃). So far, we only provide the hyperparameters to reproduce CIFAR-10 results for wrn-40-2 => wrn-16-1. You may need to tune the hyperparameters if other settings are required. More resources will be uploaded in the future update.*
+*Note: This repo was refactored from our experimental code and is still under development. I'm struggling to find the appropriate hyperparams for every methods (°ー°〃). So far, we only provide the hyperparameters to reproduce CIFAR-10 results for wrn-40-2 => wrn-16-1. You may need to tune the hyper-parameters for other models and datasets. More resources will be uploaded in the future update.*
 
 To reproduce our results, please download pre-trained teacher models from [Dropbox-Models (266 MB)](https://www.dropbox.com/sh/w8xehuk7debnka3/AABhoazFReE_5mMeyvb4iUWoa?dl=0) and extract them as `checkpoints/pretrained`. Also a pre-inverted data set with ~50k samples is available for wrn-40-2 teacher on CIFAR-10. You can download it from [Dropbox-Data (133 MB)](https://www.dropbox.com/s/enaj6c63heq5n4j/cmi-preinverted-wrn402.zip?dl=0) and extract them to `run/cmi-preinverted-wrn402/`. 
 
@@ -97,12 +99,12 @@ Hyper-parameters for different methods:
 
 ### 4. Use your models/datasets
 
-You can register your models and datasets in registry.py by modifying `NORMALIZ_DICT`, `MODEL_DICT` and `get_dataset`. Then you can run the above commands to train your own models.
+You can register your models and datasets in registry.py by modifying `NORMALIZ_DICT`, `MODEL_DICT` and `get_dataset`. Then you can run the above commands to train your own models. As DAFL requires intermediate features from the penultimate layer, your model should accept an `return_features=True` parameter and return a (logits, features) tuple for DAFL.  
 
 
 ### 5. Implement your algorithms
 
-You can inherent `datafree.synthesis.BaseSynthesizer` to implement your algorithms. It should provide two interfaces: 1) `BaseSynthesizer.synthesize` takes several steps to craft new samples and return an image dict for visualization; 2) `BaseSynthesizer.sample` fetches a batch of training data for KD.
+Your algorithms should inherent `datafree.synthesis.BaseSynthesizer` to implement two interfaces: 1) `BaseSynthesizer.synthesize` takes several steps to craft new samples and return an image dict for visualization; 2) `BaseSynthesizer.sample` fetches a batch of training data for KD.
 
 ## Citation
 If you found this work useful for your research, please cite our paper:
