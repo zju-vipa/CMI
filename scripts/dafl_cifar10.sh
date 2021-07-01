@@ -1,5 +1,5 @@
 python datafree_kd.py \
---method zskt \
+--method dafl \
 --dataset cifar10 \
 --batch_size 256 \
 --teacher wrn40_2 \
