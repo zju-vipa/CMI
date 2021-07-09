@@ -258,7 +258,7 @@ def main_worker(gpu, ngpus_per_node, args):
         generator = prepare_model(generator)
         criterion = torch.nn.L1Loss() if args.method=='dfad' else datafree.criterions.KLDiv()
         synthesizer = datafree.synthesis.GenerativeSynthesizer(
-                 teacher=teacher, student=teacher, generator=generator, nz=nz, 
+                 teacher=teacher, student=student, generator=generator, nz=nz, 
                  img_size=(3, 32, 32), iterations=args.g_steps, lr_g=args.lr_g,
                  synthesis_batch_size=args.synthesis_batch_size, sample_batch_size=args.batch_size, 
                  adv=args.adv, bn=args.bn, oh=args.oh, act=args.act, balance=args.balance, criterion=criterion,
