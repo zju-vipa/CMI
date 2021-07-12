@@ -98,7 +98,7 @@ Hyper-parameters used by different methods:
 
 ### 4. Use your models/datasets
 
-You can register your models and datasets in registry.py by modifying `NORMALIZ_DICT`, `MODEL_DICT` and `get_dataset`. Then you can run the above commands to train your own models. As DAFL requires intermediate features from the penultimate layer, your model should accept an `return_features=True` parameter and return a (logits, features) tuple for DAFL.  
+You can register your models and datasets in registry.py by modifying `NORMALIZE_DICT`, `MODEL_DICT` and `get_dataset`. Then you can run the above commands to train your own models. As DAFL requires intermediate features from the penultimate layer, your model should accept an `return_features=True` parameter and return a (logits, features) tuple for DAFL.  
 
 
 ### 5. Implement your algorithms
