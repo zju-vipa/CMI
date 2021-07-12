@@ -254,7 +254,7 @@ def main_worker(gpu, ngpus_per_node, args):
                  normalizer=args.normalizer, device=args.gpu)
     elif args.method in ['zskt', 'dfad', 'dfq', 'dafl']:
         nz = 512 if args.method=='dafl' else 256
-        generator = datafree.models.generator.Generator(nz=nz, ngf=64, img_size=32, nc=3)
+        generator = datafree.models.generator.LargeGenerator(nz=nz, ngf=64, img_size=32, nc=3)
         generator = prepare_model(generator)
         criterion = torch.nn.L1Loss() if args.method=='dfad' else datafree.criterions.KLDiv()
         synthesizer = datafree.synthesis.GenerativeSynthesizer(
@@ -285,8 +285,9 @@ def main_worker(gpu, ngpus_per_node, args):
     # Setup optimizer
     ############################################
     optimizer = torch.optim.SGD(student.parameters(), args.lr, weight_decay=args.weight_decay, momentum=0.9)
-    milestones = [ int(ms) for ms in args.lr_decay_milestones.split(',') ]
-    scheduler = torch.optim.lr_scheduler.MultiStepLR( optimizer, milestones=milestones, gamma=0.1)
+    #milestones = [ int(ms) for ms in args.lr_decay_milestones.split(',') ]
+    #scheduler = torch.optim.lr_scheduler.MultiStepLR( optimizer, milestones=milestones, gamma=0.1)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR( optimizer, T_max=args.epochs)
 
     ############################################
     # Resume

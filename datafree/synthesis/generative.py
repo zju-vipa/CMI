@@ -50,7 +50,7 @@ class GenerativeSynthesizer(BaseSynthesis):
                 self.hooks.append( DeepInversionHook(m) )
 
     def synthesize(self):
-        self.student.train()
+        self.student.eval()
         self.generator.train()
         self.teacher.eval()
         for it in range(self.iterations):
@@ -76,6 +76,7 @@ class GenerativeSynthesizer(BaseSynthesis):
     
     @torch.no_grad()
     def sample(self):
+        self.generator.eval()
         z = torch.randn( size=(self.sample_batch_size, self.nz), device=self.device )
         inputs = self.normalizer(self.generator(z))
         return inputs
