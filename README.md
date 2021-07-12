@@ -42,7 +42,7 @@ Authors: Gongfan Fang, Jie Song, Xinchao Wang, Chengchao Shen, Xingen Wang, Ming
 
 Results will be saved as `checkpoints/datafree-cmi/synthetic-cmi_for_vis.png`
 ```bash
-bash scripts/cmi_cifar10_for_vis.sh
+bash scripts/cmi/cmi_cifar10_for_vis.sh
 ```
 
 ### 2. Reproduce our results
@@ -53,15 +53,15 @@ To reproduce our results, please download pre-trained teacher models from [Dropb
 
 * **Non-adversarial CMI**: you can train a student model on inverted data directly. It should reach the accuracy of **~87.38%** on CIFAR-10 as reported in Figure 3.
 
-      bash scripts/reproduce/nonadv_cmi_cifar10.sh
+      bash scripts/cmi/nonadv_cmi_cifar10_wrn402_wrn161.sh
 
 * **Adversarial CMI**: or you can apply the adversarial distillation based on the pre-inverted data, where ~10k (256x40) new samples will be generated to improve the student. It should reach the accuracy of **~90.01%** on CIFAR-10 as reported in Table 1. 
 
-      bash scripts/reproduce/adv_cmi_cifar10.sh
+      bash scripts/cmi/adv_cmi_cifar10_wrn402_wrn161.sh
 
 * **Scratch CMI**: It is OK to run the cmi algorithm wihout any pre-inverted data, but the student may overfit to early samples due to the limited data amount. It should reach the accuracy of **~88.82%** on CIFAR-10, slightly worse than our reported results (90.01%).
 
-      bash scripts/reproduce/scratch_cmi_cifar10.sh
+      bash scripts/cmi/scratch_cmi_cifar10_wrn402_wrn161.sh
       
 ### 3. Scratch training
 
@@ -84,7 +84,7 @@ python vanilla_kd.py --teacher wrn40_2 --student wrn16_1 --dataset cifar10 --tra
 ### 5. Data-free KD
 
 ```bash
-bash scripts/xxx.sh
+bash scripts/xxx/xxx.sh # e.g. scripts/zskt/zskt_cifar10_wrn402_wrn161.sh
 ```
 Hyper-parameters used by different methods: 
 
