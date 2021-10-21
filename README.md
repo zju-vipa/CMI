@@ -108,13 +108,11 @@ Your algorithms should inherent `datafree.synthesis.BaseSynthesizer` to implemen
 ## Citation
 If you found this work useful for your research, please cite our paper:
 ```
-@misc{fang2021contrastive,
-      title={Contrastive Model Inversion for Data-Free Knowledge Distillation}, 
-      author={Gongfan Fang and Jie Song and Xinchao Wang and Chengchao Shen and Xingen Wang and Mingli Song},
-      year={2021},
-      eprint={2105.08584},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI}
+@article{fang2021contrastive,
+  title={Contrastive Model Inversion for Data-Free Knowledge Distillation},
+  author={Fang, Gongfan and Song, Jie and Wang, Xinchao and Shen, Chengchao and Wang, Xingen and Song, Mingli},
+  journal={arXiv preprint arXiv:2105.08584},
+  year={2021}
 }
 ```
 
