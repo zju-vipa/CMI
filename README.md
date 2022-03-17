@@ -49,17 +49,17 @@ bash scripts/cmi/cmi_cifar10_for_vis.sh
 
 *Note: This repo was refactored from our experimental code and is still under development. I'm struggling to find the appropriate hyperparams for every methods (°ー°〃). So far, we only provide the hyperparameters to reproduce CIFAR-10 results for wrn-40-2 => wrn-16-1. You may need to tune the hyper-parameters for other models and datasets. More resources will be uploaded in the future update.*
 
-To reproduce our results, please download pre-trained teacher models from [Dropbox-Models (266 MB)](https://www.dropbox.com/sh/w8xehuk7debnka3/AABhoazFReE_5mMeyvb4iUWoa?dl=0) and extract them as `checkpoints/pretrained`. Also a pre-inverted data set with ~50k samples is available for wrn-40-2 teacher on CIFAR-10. You can download it from [Dropbox-Data (133 MB)](https://www.dropbox.com/s/enaj6c63heq5n4j/cmi-preinverted-wrn402.zip?dl=0) and extract them to `run/cmi-preinverted-wrn402/`. 
+To reproduce our results, please download pre-trained teacher models from [Dropbox-Models (266 MB)](https://www.dropbox.com/sh/w8xehuk7debnka3/AABhoazFReE_5mMeyvb4iUWoa?dl=0) and extract them as `checkpoints/pretrained`. Also a pre-inverted data set with ~50k samples is available for wrn-40-2 teacher on CIFAR-10. You can download it from [Dropbox-Data-Preinverted (133 MB)](https://www.dropbox.com/s/enaj6c63heq5n4j/cmi-preinverted-wrn402.zip?dl=0) and extract them to `run/cmi-preinverted-wrn402/`. 
 
 * **Non-adversarial CMI**: you can train a student model on inverted data directly. It should reach the accuracy of **~87.38%** on CIFAR-10 as reported in Figure 3.
 
       bash scripts/cmi/nonadv_cmi_cifar10_wrn402_wrn161.sh
 
-* **Adversarial CMI**: or you can apply the adversarial distillation based on the pre-inverted data, where ~10k (256x40) new samples will be generated to improve the student. It should reach the accuracy of **~90.01%** on CIFAR-10 as reported in Table 1. 
+* **Adversarial CMI**: or you can apply the adversarial distillation based on the [pre-inverted data](https://www.dropbox.com/s/enaj6c63heq5n4j/cmi-preinverted-wrn402.zip?dl=0), where ~10k (256x40) new samples will be generated to improve the student. It should reach the accuracy of **~90.01%** on CIFAR-10 as reported in Table 1. 
 
       bash scripts/cmi/adv_cmi_cifar10_wrn402_wrn161.sh
 
-* **Scratch CMI**: It is OK to run the cmi algorithm wihout any pre-inverted data, but the student may overfit to early samples due to the limited data amount. It should reach the accuracy of **~88.82%** on CIFAR-10, slightly worse than our reported results (90.01%).
+* **Scratch CMI**: It is OK to run the cmi algorithm wihout any pre-inverted data, but the student may overfit to those generated data due from early stages. In this case, the student should achieve the accuracy of **~88.82%** on CIFAR-10, slightly worse than adversarial CMI (90.01%).
 
       bash scripts/cmi/scratch_cmi_cifar10_wrn402_wrn161.sh
       
